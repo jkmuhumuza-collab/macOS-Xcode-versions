@@ -1,0 +1,28 @@
+{
+  "_comment": "Merge into .claude/settings.json. Fires the out-turn feedback hook whenever a ledger snapshot is written. The hook itself is safe to fire on interim snapshots: it SKIPS unless a FINAL_STATEMENT event is on the chain, and it is idempotent per ledger_ref. Adjust the absolute paths to the practice installation.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys,json,subprocess; d=json.load(sys.stdin); p=d.get('tool_input',{}).get('file_path','') or d.get('tool_input',{}).get('path',''); sys.exit(0) if ('CCELAM_LEDGER' not in p or not p.endswith('.json')) else sys.exit(subprocess.call(['python3','/path/to/ccelam-pipeline/hooks/outturn_rates_hook.py',p,'--register-dir','/path/to/ccelam-pipeline/rates','--library','/path/to/ccelam-pipeline/rates/rate_library_kampala.csv']))\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "_comment": "G1 intake gate: block measurement runs on unvalidated IFC. Pairs with gate_sequence.py; this matcher targets the Quantify engine invocations.",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import sys,json,re,subprocess; d=json.load(sys.stdin); cmd=d.get('tool_input',{}).get('command',''); m=re.search(r'(run_boq|quantify|ifc_parser)\\\\S*.*?(\\\\S+\\\\.ifc)', cmd); sys.exit(0) if not m else sys.exit(2 if subprocess.call(['python3','/path/to/ccelam-pipeline/intake/g1_intake_gate.py',m.group(2)])==2 else 0)\""
+          }
+        ]
+      }
+    ]
+  }
+}

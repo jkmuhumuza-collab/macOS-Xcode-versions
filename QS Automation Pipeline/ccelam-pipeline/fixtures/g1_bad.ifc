@@ -1,0 +1,18 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ViewDefinition[DesignTransferView]'),'2;1');
+FILE_NAME('/dev/null','2026-06-10T05:42:44+00:00',(''),(''),'IfcOpenShell 0.8.5','IfcOpenShell 0.8.5','Nobody');
+FILE_SCHEMA(('IFC4'));
+ENDSEC;
+DATA;
+#1=IFCPROJECT('1y_8YQQTbFjfS4zHm82rA_',$,'G1 demo bad',$,$,$,$,$,#5);
+#2=IFCSIUNIT(*,.LENGTHUNIT.,.MILLI.,.METRE.);
+#3=IFCSIUNIT(*,.AREAUNIT.,$,.SQUARE_METRE.);
+#4=IFCSIUNIT(*,.VOLUMEUNIT.,$,.CUBIC_METRE.);
+#5=IFCUNITASSIGNMENT((#3,#4,#2));
+#6=IFCSITE('3clKDGNczBKvrjZT2_PuL6',$,'Site',$,$,$,$,$,$,$,$,$,$,$);
+#7=IFCWALL('2pFAF2k$bFJBiXJ34zaLJF',$,'Wall 0',$,$,$,$,$,$);
+#8=IFCWALL('2pFAF2k$bFJBiXJ34zaLJF',$,'Wall 1',$,$,$,$,$,$);
+#9=IFCWALL('2UlaNKQX5E2Ox1kZtEpG9f',$,'Wall 2',$,$,$,$,$,$);
+ENDSEC;
+END-ISO-10303-21;

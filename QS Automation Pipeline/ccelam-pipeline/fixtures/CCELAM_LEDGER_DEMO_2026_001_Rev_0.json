@@ -1,0 +1,255 @@
+{
+  "schema": "ccelam-ledger/1.0",
+  "header": {
+    "ledger_ref": "CCELAM/LEDGER/DEMO/2026/001",
+    "project_ref": "DEMO-INFRA-01",
+    "project_title": "Demonstration Infrastructure Project",
+    "employer": "Demonstration Employer Ltd",
+    "contractor": "Demonstration Contractor Ltd",
+    "engineer": "CCELAM NK & Associates",
+    "consultant": "CCELAM NK & Associates",
+    "contract_form": "FIDIC Red Book 1999",
+    "currency": "UGX",
+    "contract_sum": "900000000.00",
+    "commencement_date": "2026-01-05",
+    "time_for_completion_days": 365,
+    "dnp_days": 365,
+    "retention_percent": "10",
+    "retention_limit_percent": "5",
+    "advance_payment": "120000000.00",
+    "advance_recovery_percent": "15",
+    "vat_percent": "18",
+    "apply_vat": false
+  },
+  "baseline": {
+    "boq_ref": "CCELAM/BOQ/DEMO/2026/001 Rev 0",
+    "measurement_standard": "SMM7",
+    "lines": [
+      {
+        "item_ref": "A.1.1",
+        "work_section": "A \u2014 Preliminaries",
+        "description": "Preliminaries and general conditions",
+        "unit": "Item",
+        "quantity": "1",
+        "rate": "250000000",
+        "source_guids": [],
+        "provisional": false
+      },
+      {
+        "item_ref": "E.10.1",
+        "work_section": "E \u2014 In-situ concrete",
+        "description": "RC grade C30 in columns and beams",
+        "unit": "m3",
+        "quantity": "400",
+        "rate": "850000",
+        "source_guids": [
+          "2N1$demoGUIDcol01",
+          "2N1$demoGUIDbm02"
+        ],
+        "provisional": false
+      },
+      {
+        "item_ref": "F.10.2",
+        "work_section": "F \u2014 Masonry",
+        "description": "Blockwork 200 mm thick in cement mortar 1:3",
+        "unit": "m2",
+        "quantity": "2500",
+        "rate": "95000",
+        "source_guids": [
+          "3M2$demoGUIDwall1"
+        ],
+        "provisional": false
+      }
+    ]
+  },
+  "events": [
+    {
+      "seq": 1,
+      "event_id": "911078a3-0613-4046-a031-72b32ddc2b87",
+      "timestamp": "2026-06-10T05:45:25.322074+00:00",
+      "type": "BASELINE_LOCKED",
+      "payload": {
+        "boq_ref": "CCELAM/BOQ/DEMO/2026/001 Rev 0",
+        "measurement_standard": "SMM7",
+        "line_count": 3,
+        "measured_total": "827500000.00",
+        "baseline_hash": "8f3d06c5483ea13a592b2c788faf9f118990249c1a7c649cf89914a43e9836b4"
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e151a5bf23f642aab14280384e29f09446799b4796be96b70884941680439b2b"
+    },
+    {
+      "seq": 2,
+      "event_id": "a13c037b-e283-4180-84d1-3234178187c6",
+      "timestamp": "2026-06-10T05:45:25.322262+00:00",
+      "type": "IPC_CERTIFIED",
+      "payload": {
+        "cert_no": 1,
+        "period_end": "2026-03-31",
+        "measured_work_todate": "278500000.00",
+        "variations_todate": "0.00",
+        "materials_on_site": "0.00",
+        "gross_todate": "278500000.00",
+        "retention_todate": "27850000.00",
+        "advance_recovery_todate": "41775000.00",
+        "previous_net_certified": "0",
+        "net_this_certificate": "208875000.00",
+        "vat_this_certificate": "0.00",
+        "payable_this_certificate": "208875000.00",
+        "remeasure_flags": [],
+        "net_certified_todate": "208875000.00",
+        "measured_todate": {
+          "E.10.1": "150",
+          "F.10.2": "800",
+          "A.1.1": "0.3"
+        }
+      },
+      "prev_hash": "e151a5bf23f642aab14280384e29f09446799b4796be96b70884941680439b2b",
+      "hash": "2c94c373eec4881e8c2635829644fbf3129bcafd3d015dff34ddd0cf79f52aa7"
+    },
+    {
+      "seq": 3,
+      "event_id": "7c6807f8-76b7-4051-9a49-1454d4c3f77b",
+      "timestamp": "2026-06-10T05:45:25.322327+00:00",
+      "type": "VARIATION",
+      "payload": {
+        "vo_ref": "VO-01",
+        "sub_clause": "13.3",
+        "description": "Additional drainage works",
+        "contractor_claim": "64000000.00",
+        "qs_assessment": "50000000.00",
+        "approved_amount": "50000000.00",
+        "status": "approved",
+        "new_lines": [
+          {
+            "item_ref": "R.12.1",
+            "work_section": "R \u2014 Disposal systems",
+            "description": "VO-01 additional drainage (star rate)",
+            "unit": "Sum",
+            "quantity": "1",
+            "rate": "50000000",
+            "source_guids": [],
+            "provisional": false
+          }
+        ]
+      },
+      "prev_hash": "2c94c373eec4881e8c2635829644fbf3129bcafd3d015dff34ddd0cf79f52aa7",
+      "hash": "e7292f651662378084d06905ebb01c5aef034bcfc7deaef29aa4eb0af583b2d1"
+    },
+    {
+      "seq": 4,
+      "event_id": "1e5ab913-d585-405c-858e-65f5411ea024",
+      "timestamp": "2026-06-10T05:45:25.322444+00:00",
+      "type": "IPC_CERTIFIED",
+      "payload": {
+        "cert_no": 2,
+        "period_end": "2026-06-30",
+        "measured_work_todate": "817000000.00",
+        "variations_todate": "0.00",
+        "materials_on_site": "10000000.00",
+        "gross_todate": "827000000.00",
+        "retention_todate": "47500000.00",
+        "advance_recovery_todate": "120000000.00",
+        "previous_net_certified": "208875000.00",
+        "net_this_certificate": "450625000.00",
+        "vat_this_certificate": "0.00",
+        "payable_this_certificate": "450625000.00",
+        "remeasure_flags": [
+          "F.10.2: measured 2600 exceeds billed 2500 m2 \u2014 remeasure / VO check"
+        ],
+        "net_certified_todate": "659500000.00",
+        "measured_todate": {
+          "E.10.1": "400",
+          "F.10.2": "2600",
+          "A.1.1": "0.8",
+          "R.12.1": "0.6"
+        }
+      },
+      "prev_hash": "e7292f651662378084d06905ebb01c5aef034bcfc7deaef29aa4eb0af583b2d1",
+      "hash": "af91209e07980366ba66653c44703ea15f4b54350bc0e3d0bc8acf2fa6216f8c"
+    },
+    {
+      "seq": 5,
+      "event_id": "48280d30-b5c5-4fe3-9a8f-c9b9c73edc92",
+      "timestamp": "2026-06-10T05:45:25.322492+00:00",
+      "type": "TAKING_OVER",
+      "payload": {
+        "toc_ref": "CCELAM/TOC/DEMO/2026/001",
+        "date": "2026-07-15",
+        "section": null,
+        "outstanding_works_value": "4500000.00",
+        "first_moiety_released": "23750000.00"
+      },
+      "prev_hash": "af91209e07980366ba66653c44703ea15f4b54350bc0e3d0bc8acf2fa6216f8c",
+      "hash": "c8c08f69adf94d6461aa9b6395c45b0b3c8bb7e814d65b6b5e6547ed6b7325e2"
+    },
+    {
+      "seq": 6,
+      "event_id": "c2dfd499-c2a9-43a5-9519-b41358d86257",
+      "timestamp": "2026-06-10T05:45:25.322520+00:00",
+      "type": "RETENTION_RELEASE",
+      "payload": {
+        "moiety": "first",
+        "amount": "23750000.00",
+        "authority": "CCELAM/TOC/DEMO/2026/001"
+      },
+      "prev_hash": "c8c08f69adf94d6461aa9b6395c45b0b3c8bb7e814d65b6b5e6547ed6b7325e2",
+      "hash": "c7228f19e01e5ccc34e9a7c43a944e71f3aa022b89d43e8c882f19229f4c5156"
+    },
+    {
+      "seq": 7,
+      "event_id": "26258c55-1f29-4884-ac3f-79c6b15cd947",
+      "timestamp": "2026-06-10T05:45:25.322557+00:00",
+      "type": "PERFORMANCE_CERTIFICATE",
+      "payload": {
+        "pc_ref": "CCELAM/PC/DEMO/2026/001",
+        "date": "2027-07-15",
+        "second_moiety_released": "23750000.00"
+      },
+      "prev_hash": "c7228f19e01e5ccc34e9a7c43a944e71f3aa022b89d43e8c882f19229f4c5156",
+      "hash": "ef211c90a99b6613a276c6737f4076806e74a6eafb89687b5a6a799a325d1f7c"
+    },
+    {
+      "seq": 8,
+      "event_id": "db24dddf-0ad2-47f5-a255-1b825b380c65",
+      "timestamp": "2026-06-10T05:45:25.322579+00:00",
+      "type": "RETENTION_RELEASE",
+      "payload": {
+        "moiety": "second",
+        "amount": "23750000.00",
+        "authority": "CCELAM/PC/DEMO/2026/001"
+      },
+      "prev_hash": "ef211c90a99b6613a276c6737f4076806e74a6eafb89687b5a6a799a325d1f7c",
+      "hash": "63bc4e83a09e28e35891318366ffba3477bd9ad771f3e9dc903ac64096369d18"
+    },
+    {
+      "seq": 9,
+      "event_id": "3f9751b4-ba8e-4e60-9fcb-7ed69c0f7f4d",
+      "timestamp": "2026-06-10T05:45:25.322620+00:00",
+      "type": "FINAL_STATEMENT",
+      "payload": {
+        "final_contract_sum": "950000000.00",
+        "gross_value_executed": "827000000.00",
+        "net_certified_todate": "659500000.00",
+        "retention_released": "47500000.00",
+        "balance_due_on_final_certificate": "47500000.00",
+        "out_turn_basis": "measured_todate of last IPC + approved VOs"
+      },
+      "prev_hash": "63bc4e83a09e28e35891318366ffba3477bd9ad771f3e9dc903ac64096369d18",
+      "hash": "09b32f63167514586a19dbbe3f9a18f0c4bd5f902a482233a6b6ba63b6b6aa39"
+    },
+    {
+      "seq": 10,
+      "event_id": "cd603a95-9a9f-4b2e-8285-69a657ef2005",
+      "timestamp": "2026-06-10T05:45:25.322949+00:00",
+      "type": "SNAPSHOT_ISSUED",
+      "payload": {
+        "rev": 0,
+        "file": "CCELAM_LEDGER_DEMO_2026_001_Rev_0.json",
+        "doc_ref": "CCELAM/LEDGER/DEMO/2026/001 Rev 0"
+      },
+      "prev_hash": "09b32f63167514586a19dbbe3f9a18f0c4bd5f902a482233a6b6ba63b6b6aa39",
+      "hash": "457ebdee3e5a468b9b509dbd9afec74ecf47b6fbc05ce8b5ceb46d90db6dfe41"
+    }
+  ]
+}

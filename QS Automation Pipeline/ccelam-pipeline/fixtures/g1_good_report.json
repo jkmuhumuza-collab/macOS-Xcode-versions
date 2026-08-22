@@ -1,0 +1,51 @@
+{
+  "gate": "G1-INTAKE",
+  "file": "g1_good.ifc",
+  "sha256": "2cab34d936453f82d52675f90b534accf24944c115535371a70d6e849f845eaa",
+  "checked_at": "2026-06-10T05:42:44.635800+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "G1.1",
+      "name": "Schema",
+      "result": "PASS",
+      "detail": "IFC4"
+    },
+    {
+      "check": "G1.2",
+      "name": "Length unit declared",
+      "result": "PASS",
+      "detail": "MILLIMETRE"
+    },
+    {
+      "check": "G1.3",
+      "name": "GlobalId integrity",
+      "result": "PASS",
+      "detail": "8 products, all unique"
+    },
+    {
+      "check": "G1.4",
+      "name": "Measurable content",
+      "result": "PASS",
+      "detail": "7 measurable elements"
+    },
+    {
+      "check": "G1.5",
+      "name": "BaseQuantities coverage",
+      "result": "PASS",
+      "detail": "100.0%"
+    },
+    {
+      "check": "G1.6",
+      "name": "Property set coverage",
+      "result": "PASS",
+      "detail": "71.4%"
+    }
+  ],
+  "schema": "IFC4",
+  "length_unit": "MILLIMETRE",
+  "products": 8,
+  "measurable_elements": 7,
+  "quantity_coverage_pct": 100.0,
+  "pset_coverage_pct": 71.4
+}

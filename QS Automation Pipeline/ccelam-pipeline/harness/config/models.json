@@ -1,0 +1,15 @@
+{
+  "_comment": "Eligible models (context input). The harness records the model selected for a plan; inference, routing and scaling stay with the provider and never run inside the harness boundary.",
+  "models": [
+    {"id": "claude-haiku-4-5", "provider": "anthropic",
+     "capabilities": ["classify", "summarise"], "cost_tier": 1,
+     "policies": ["no-certification"]},
+    {"id": "claude-sonnet-5", "provider": "anthropic",
+     "capabilities": ["classify", "summarise", "code", "measurement"],
+     "cost_tier": 2, "policies": []},
+    {"id": "claude-opus-5-5", "provider": "anthropic",
+     "capabilities": ["classify", "summarise", "code", "measurement",
+                      "certification", "contract-admin"],
+     "cost_tier": 3, "policies": []}
+  ]
+}

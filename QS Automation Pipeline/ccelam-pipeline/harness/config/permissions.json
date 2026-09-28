@@ -1,0 +1,19 @@
+{
+  "_comment": "Permissions (context input), layered org > workspace > user. Effective permission is the most restrictive combination: allows intersect, denies union. Paths are relative to the pipeline root unless absolute.",
+  "org": {
+    "allow_tools": ["*"],
+    "deny_tools": ["provider_connector_sync"],
+    "allow_models": ["*"],
+    "max_risk": "medium"
+  },
+  "workspace": {
+    "root": ".",
+    "allow_tools": ["g1_intake_gate", "ledger_tests", "ledger_verify",
+                    "outturn_rates_hook"],
+    "write_paths": ["rates", "evidence"]
+  },
+  "user": {
+    "allow_tools": ["*"],
+    "allow_models": ["*"]
+  }
+}

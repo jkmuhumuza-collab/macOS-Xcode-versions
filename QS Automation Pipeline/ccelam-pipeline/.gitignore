@@ -1,0 +1,3 @@
+__pycache__/
+# harness evidence is per-installation; archive it with the project file, not in git
+evidence/

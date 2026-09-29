@@ -25,7 +25,8 @@ fictional and hand-verified.
   including the over-measure flag, retention/advance caps, moiety
   releases, round-trip load, and tamper detection.
 
-Run: `python3 tests/test_ledger.py`
+Run: `python3 tests/test_ledger.py` (snapshots go to a temporary
+directory, so the suite can be re-run)
 
 ## 2. Two new skills (`skills/`)
 
@@ -62,6 +63,18 @@ joining the 26-skill library as items 27 and 28.
 - `hook_settings_snippet.json` — PostToolUse wiring (fires on ledger
   snapshot writes; safely SKIPs interim snapshots) and a PreToolUse G1
   wiring for measurement runs. Adjust paths on installation.
+
+## 5. Coding harness (`harness/`)
+
+Every pipeline tool runs through one control plane: context inputs
+(models, tools, layered permissions) → selection (model + tool + plan) →
+host validation (policy, safety, scope) → tool runs → evidence (results,
+logs, SHA-256 workspace diff, hash-chained evidence log). Selection is not
+permission, and provider-owned internals and external ACP loops stay
+outside the boundary. See `harness/README.md`.
+
+Run: `python3 -m harness run "validate ifc model" --arg ifc=fixtures/g1_good.ifc`
+Tests: `python3 tests/test_harness.py` (33 checks)
 
 ## Dependencies
 

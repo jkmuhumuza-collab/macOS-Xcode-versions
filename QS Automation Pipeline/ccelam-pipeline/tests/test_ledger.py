@@ -6,6 +6,7 @@ Demonstration project (fictional figures, hand-verified arithmetic):
 """
 
 import sys
+import tempfile
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
@@ -122,7 +123,8 @@ ok, _ = eng.verify_chain()
 check("hash chain verifies", ok, True)
 
 print("== Snapshot versioning (supersede, never overwrite) ==")
-out = Path("/home/claude/ccelam-pipeline/fixtures")
+_tmp = tempfile.TemporaryDirectory()   # repeatable; never writes into the repo
+out = Path(_tmp.name)
 p0 = eng.snapshot(rev=0, directory=out)
 print(f"  ok  issued {p0.name}")
 PASS += 1
@@ -149,5 +151,6 @@ except LedgerError as e:
     print(f"  ok  tamper detected: {e}")
     PASS += 1
 tampered.unlink()
+_tmp.cleanup()
 
 print(f"\nALL {PASS} CHECKS PASSED")

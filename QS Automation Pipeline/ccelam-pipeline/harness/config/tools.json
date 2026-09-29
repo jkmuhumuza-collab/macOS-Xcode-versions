@@ -1,0 +1,46 @@
+{
+  "_comment": "Available tools (context input). argv placeholders: {python}, {root}, {arg:NAME}. Arg kinds path_in / dir_out are scope-checked by host validation; dir_out is also checked against the write scope. kind 'external_acp' marks a provider-owned loop the harness will select but never execute.",
+  "tools": [
+    {"name": "g1_intake_gate", "kind": "local", "side_effect": "read",
+     "risk": "low", "requires": ["measurement"],
+     "intents": ["validate", "intake", "ifc", "model", "gate", "g1"],
+     "args": {"ifc": {"kind": "path_in", "required": true, "suffix": ".ifc"}},
+     "argv": ["{python}", "{root}/intake/g1_intake_gate.py", "{arg:ifc}"],
+     "exit_codes": {"0": "PASS", "1": "WARN", "2": "FAIL"},
+     "timeout_s": 120},
+
+    {"name": "ledger_tests", "kind": "local", "side_effect": "read",
+     "risk": "low", "requires": ["code"],
+     "intents": ["test", "tests", "ledger", "build", "check", "regression"],
+     "args": {},
+     "argv": ["{python}", "{root}/tests/test_ledger.py"],
+     "exit_codes": {"0": "PASS"},
+     "timeout_s": 120},
+
+    {"name": "ledger_verify", "kind": "local", "side_effect": "read",
+     "risk": "low", "requires": ["classify"],
+     "intents": ["verify", "ledger", "chain", "tamper", "integrity"],
+     "args": {"ledger": {"kind": "path_in", "required": true, "suffix": ".json"}},
+     "argv": ["{python}", "{root}/harness/tools/ledger_verify.py", "{arg:ledger}"],
+     "exit_codes": {"0": "PASS", "2": "FAIL"},
+     "timeout_s": 60},
+
+    {"name": "outturn_rates_hook", "kind": "local", "side_effect": "write",
+     "risk": "medium", "requires": ["certification"],
+     "intents": ["outturn", "out-turn", "rates", "closure", "feedback", "register"],
+     "preconditions": ["ledger_verify"],
+     "args": {"ledger": {"kind": "path_in", "required": true, "suffix": ".json"},
+              "register_dir": {"kind": "dir_out", "required": true},
+              "library": {"kind": "path_in", "required": false, "suffix": ".csv"}},
+     "argv": ["{python}", "{root}/hooks/outturn_rates_hook.py", "{arg:ledger}",
+              "--register-dir", "{arg:register_dir}",
+              "?--library", "{arg:library}"],
+     "exit_codes": {"0": "PASS", "2": "FAIL"},
+     "timeout_s": 120},
+
+    {"name": "provider_connector_sync", "kind": "external_acp",
+     "side_effect": "write", "risk": "high", "requires": ["classify"],
+     "intents": ["sync", "connector", "external", "acp"],
+     "args": {}, "argv": [], "exit_codes": {}, "timeout_s": 0}
+  ]
+}

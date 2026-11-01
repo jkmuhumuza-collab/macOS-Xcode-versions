@@ -11,5 +11,8 @@
     "@copilotkit/react-core": "^1.79.1",
     "@copilotkit/react-ui": "^1.79.1",
     "@copilotkit/runtime": "^1.79.1"
+  },
+  "overrides": {
+    "undici": "^6.29.1"
   }
 }
